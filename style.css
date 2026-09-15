@@ -1,0 +1,38 @@
+/* The public pages. One stylesheet, the account's crimson and peach, light or dark
+   as the reader's device prefers. */
+
+:root {
+  --ink: #2a1215; --dim: #6b4a4e; --line: #ecd9d3; --ground: #fbf5f2;
+  --accent: #790606; --peach: #ec8a5a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #f6e6df; --dim: #c3a39c; --line: #3a2226; --ground: #1a0d0f; --accent: #ec8a5a; }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding-inline: 20px;
+  background: var(--ground); color: var(--ink);
+  font: 17px/1.6 Georgia, "Times New Roman", serif;
+}
+main { max-width: 680px; margin: 0 auto; padding-block: 40px 64px; }
+nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px;
+      font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+nav b { color: var(--accent); margin-right: auto; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 19px; margin: 32px 0 8px; }
+ul { padding-left: 22px; }
+a { color: var(--accent); }
+.dim { color: var(--dim); font-size: 14px; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); }
+.code {
+  padding: 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: rgba(236, 138, 90, .08);
+  font: 16px/1.4 ui-monospace, Consolas, monospace; word-break: break-all;
+}
+button {
+  margin-top: 12px; padding: 8px 16px; cursor: pointer;
+  border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #fff;
+  font: 15px system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+[hidden] { display: none !important; }
