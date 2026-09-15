@@ -30,7 +30,8 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   background: rgba(236, 138, 90, .08);
   font: 16px/1.4 ui-monospace, Consolas, monospace; word-break: break-all;
 }
-button {
+a.button { display: inline-block; text-decoration: none; }
+button, a.button {
   margin-top: 12px; padding: 8px 16px; cursor: pointer;
   border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #fff;
   font: 15px system-ui, -apple-system, "Segoe UI", sans-serif;
