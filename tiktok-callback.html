@@ -15,8 +15,11 @@
   <!-- TikTok sends the browser back here with ?code=...; the code is shown so it can be
        copied into the publishing tool. Nothing is sent anywhere from this page. -->
   <div id="got" hidden>
-    <p>TikTok returned a one-time code. Copy it into the publishing tool now: it expires
-      within minutes and works only once.</p>
+    <p>TikTok returned a one-time code. It expires within minutes and works only once.</p>
+    <!-- Home to the publishing tool on this computer, which trades the code for the
+         tokens; the address is Social's default (SOCIAL_PORT). -->
+    <p><a id="continue" class="button" href="#">Continue to Crimson Peach</a></p>
+    <p class="dim">Or copy it into the publishing tool by hand:</p>
     <div class="code" id="code"></div>
     <button id="copy" type="button">Copy code</button>
   </div>
@@ -36,6 +39,8 @@
   const error = query.get("error_description") || query.get("error");
   if (code) {
     document.getElementById("code").textContent = code;
+    document.getElementById("continue").href = "http://127.0.0.1:5056/tiktok/callback?" +
+      new URLSearchParams({ code, state: query.get("state") || "" });
     document.getElementById("got").hidden = false;
     document.getElementById("idle").hidden = true;
     document.getElementById("copy").onclick = async (event) => {
